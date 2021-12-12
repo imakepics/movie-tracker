@@ -11,7 +11,7 @@
     :clearable="isClearable"
     :label="label"
     prepend-inner-icon="mdi-magnify"
-    @click:clear="_value = ''"
+    @click:clear="_value=''"
   >
   </v-text-field>
 </template>

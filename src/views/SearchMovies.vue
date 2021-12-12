@@ -14,7 +14,10 @@
     </v-row>
     <!-- #endregion-->
     <!-- #region [movie-card] -->
-    <v-row justify="center">
+    <v-row v-if="!movies && search">
+      No items matching your search criteria were found
+    </v-row>
+    <v-row v-else justify="center">
       <v-col v-for="movie in movies" :key="movie.imdbID" cols="auto">
         <movie-card :movie="movie" @onClick:watched="saveWatched" />
       </v-col>
@@ -63,6 +66,9 @@ export default {
   },
   methods: {
     async getMoviesContent() {
+      if(this.search === null) {
+        return;
+      }
       try {
         const response = await axios.get(
           `http://www.omdbapi.com/?apikey=${env.apikey}&s=${this.search}`
