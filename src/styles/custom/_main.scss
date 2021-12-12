@@ -1,0 +1,22 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+}
+body {
+    background-color: #242D3C;
+    padding: 3rem;
+    & #app {
+        color: #ffffff;
+        background-color: transparent;
+    }
+    #nav {
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .router-link-exact-active {
+            color: #42b983;
+          }
+    }    
+}
