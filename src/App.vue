@@ -1,15 +1,15 @@
 <template>
   <v-app>
     <div id="nav">
-      <router-link :to="{ name: 'home' }">
+      <router-link :to="{ name: 'search-movies' }">
         <v-img
           class="mb-12"
           height="2rem"
           contain
           src="@/assets/img/movieXmood-logo.svg"
         />
-        Home</router-link> |
-      <router-link :to="{ name: 'about' }">About</router-link>
+        Search Movies</router-link> |
+      <router-link :to="{ name: 'watched-movies' }">Watched Movies</router-link>
     </div>
     <v-main>
     <router-view />

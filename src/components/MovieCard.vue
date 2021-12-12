@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" width="344">
+  <v-card>
     <v-img :src="movie.Poster" height="200px"></v-img>
 
     <v-card-title>
@@ -27,7 +27,7 @@
           {{ _moreInfo }}
         </v-card-text>
         <v-card-actions>
-          <v-btn color="primary" text @click="setViewed">
+          <v-btn color="primary" text @click="setWatched(movie)">
             Mark the movie as watched
           </v-btn>
         </v-card-actions>
@@ -51,6 +51,7 @@ export default {
   data: () => ({
     isMoreInfoActive: false,
     moreInfo: "",
+    watchedMovies: [],
   }),
   computed: {
     _moreInfo() {
@@ -70,8 +71,6 @@ export default {
         );
         console.log("response.data", response.data);
         this.moreInfo = response.data;
-
-        //console.log("fullInfo movies", moviesFullInfo);
       } catch (error) {
         console.log(error);
       }
@@ -80,8 +79,8 @@ export default {
       this.isMoreInfoActive = !this.isMoreInfoActive;
       this.getMoreInfo(this.movie.imdbID);
     },
-    setViewed() {
-      console.log("viewed");
+    setWatched(value) {
+      this.$emit('onClick:watched', value)
       this.isMoreInfoActive = false;
     },
   },

@@ -13,9 +13,10 @@
     </v-row>
     <v-row>
       <v-col v-for="movie in movies" :key="movie.imdbID" cols="auto">
-        <movie-card
-          :movie="movie"
-        />
+          <movie-card
+            :movie="movie"
+            @onClick:watched="saveWatched"
+          />
       </v-col>
     </v-row>
   </div>
@@ -28,7 +29,7 @@ import MovieCard from "@/components/MovieCard.vue";
 import SearchField from "@/components/SearchField.vue";
 
 export default {
-  name: "Home",
+  name: "SearchMovies",
   components: {
     MovieCard,
     SearchField,
@@ -37,7 +38,7 @@ export default {
     return {
       movies: undefined,
       search: undefined,
-      movieFullInfo: undefined,
+      watchedMovies: [],
     };
   },
   computed: {
@@ -51,6 +52,14 @@ export default {
       },
     },
   },
+  watch: {
+    watchedMovies: {
+      handler(movies) {
+        localStorage.movies = JSON.stringify(movies);
+      },
+      deep: true,
+    },
+  },
   methods: {
     async getMoviesContent() {
       try {
@@ -62,6 +71,14 @@ export default {
         console.log(error);
       }
     },
+    saveWatched(value) {
+      //console.log(this.watchedMovies.some(value))
+      if(this.watchedMovies.includes(value)) {
+        return;
+      }
+        this.watchedMovies.push(value);
+        console.log("watchedMovies", this.watchedMovies);
+    }
   },
 };
 </script>
