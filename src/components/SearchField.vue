@@ -7,9 +7,11 @@
     single-line
     hide-details="auto"
     background-color="rgba(255, 255, 255, 0.3)"
+    :autofocus="isAutofocus"
     :clearable="isClearable"
     :label="label"
     prepend-inner-icon="mdi-magnify"
+    @click:clear="_value = ''"
   >
   </v-text-field>
 </template>
@@ -29,6 +31,10 @@ export default {
     label: {
       type: String,
       default: undefined,
+    },
+    isAutofocus: {
+      type: Boolean,
+      default: false,
     },
     isClearable: {
       type: Boolean,

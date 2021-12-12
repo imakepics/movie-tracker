@@ -1,24 +1,25 @@
 <template>
   <div>
-    <div class="my-3">Find movie for your mood</div>
-    <v-row>
-      <v-col cols="3">
+    <!-- #region [search-field] -->
+    <v-row class="flex-column no-gutters" align="center">
+      <div class="mb-4">Find movie for your mood</div>
+      <v-col cols="12" sm="6" md="3" class="mb-4">
         <search-field
           v-model="_search"
+          isAutofocus
           isClearable
-          description="Description"
           label="Search"
         />
       </v-col>
     </v-row>
-    <v-row>
+    <!-- #endregion-->
+    <!-- #region [movie-card] -->
+    <v-row justify="center">
       <v-col v-for="movie in movies" :key="movie.imdbID" cols="auto">
-          <movie-card
-            :movie="movie"
-            @onClick:watched="saveWatched"
-          />
+        <movie-card :movie="movie" @onClick:watched="saveWatched" />
       </v-col>
     </v-row>
+    <!-- #endregion-->
   </div>
 </template>
 
@@ -36,8 +37,8 @@ export default {
   },
   data() {
     return {
-      movies: undefined,
-      search: undefined,
+      movies: [],
+      search: "",
       watchedMovies: [],
     };
   },
@@ -72,13 +73,11 @@ export default {
       }
     },
     saveWatched(value) {
-      //console.log(this.watchedMovies.some(value))
-      if(this.watchedMovies.includes(value)) {
+      if (this.watchedMovies.includes(value)) {
         return;
       }
-        this.watchedMovies.push(value);
-        console.log("watchedMovies", this.watchedMovies);
-    }
+      this.watchedMovies.push(value);
+    },
   },
 };
 </script>
