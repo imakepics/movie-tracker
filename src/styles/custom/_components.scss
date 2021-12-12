@@ -1,0 +1,16 @@
+// #region [search-field]
+.search-field {
+    &.v-label, &.v-icon{
+        color: var(--v-secondary-base);
+    }
+}
+// #endregion
+// #region [movie-card]
+.movie-card {
+    &__title.v-card__title {
+        white-space: normal;
+        font-size: 1rem;
+    }
+}
+// #endregion
+

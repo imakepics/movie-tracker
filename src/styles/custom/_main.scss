@@ -1,22 +1,24 @@
+// #region [global]
 html {
-    font-family: 'Roboto', sans-serif;
-    color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  color: var(--v-secondary-base);
 }
 body {
-    background-color: #242D3C;
-    padding: 3rem;
-    & #app {
-        color: #ffffff;
-        background-color: transparent;
+  background-color: var(--v-background-base);
+  padding: 3rem;
+  & #app {
+    color: var(--v-secondary-base);
+    background-color: transparent;
+  }
+  #nav {
+    a {
+      color: var(--v-secondary-base);
+      text-decoration: none;
+      text-transform: uppercase;
     }
-    #nav {
-        a {
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-        .router-link-exact-active {
-            color: #42b983;
-          }
-    }    
+    .router-link-exact-active {
+      color: var(--v-primary-base);
+    }
+  }
 }
+// #endregion
