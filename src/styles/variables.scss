@@ -1,0 +1,10 @@
+// #region [grid]
+$grid-gutter: 0;
+$grid-gutters: (
+  "xs": $grid-gutter,
+  "sm": $grid-gutter,
+  "md": $grid-gutter,
+  "lg": $grid-gutter,
+  "xl": $grid-gutter,
+);
+// #endregion

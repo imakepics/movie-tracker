@@ -6,7 +6,7 @@
       {{ movie.Title }}
     </v-card-title>
     <!-- #endregion-->
-    <v-row class="no-gutters" align="center">
+    <v-row align="center">
       <!-- #region [subtitle] -->
       <v-col class="mb-4">
         <v-card-subtitle class="py-0">
