@@ -17,11 +17,11 @@
       <!-- #region [more info button] -->
       <v-col cols="auto" class="mb-4">
         <v-card-actions class="pa-0 mr-4">
-          <v-btn icon @click="showMore">
-            <v-icon>{{
-              isMoreInfoActive ? "mdi-chevron-up" : "mdi-chevron-down"
-            }}</v-icon>
-          </v-btn>
+          <movie-button
+            isIcon
+            :icon="isMoreInfoActive ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+            @onClick="showMore"
+          />
         </v-card-actions>
       </v-col>
       <!-- #endregion-->
@@ -34,9 +34,11 @@
           {{ _moreInfo }}
         </v-card-text>
         <v-card-actions v-if="!isMarked">
-          <v-btn color="primary" text @click="setWatched(movie)">
-            Mark as watched
-          </v-btn>
+          <movie-button
+            isText
+            label="Mark as watched"
+            @onClick="setWatched(movie)"
+          />
         </v-card-actions>
       </div>
     </v-expand-transition>
@@ -47,8 +49,10 @@
 <script>
 import axios from "axios";
 import env from "@/env";
+import MovieButton from "@/components/MovieButton.vue";
 
 export default {
+  components: { MovieButton },
   name: "MovieCard",
   props: {
     movie: {
