@@ -14,7 +14,7 @@
     </v-row>
     <!-- #endregion-->
     <!-- #region [movie-card] -->
-    <v-row v-if="!movies && search">
+    <v-row v-if="!movies && search" class="no-gutters" justify="center">
       No items matching your search criteria were found
     </v-row>
     <v-row v-else justify="center">
