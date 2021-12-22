@@ -17,6 +17,7 @@
     <v-row justify="center" align="center">
       <v-progress-circular
         v-if="isLoading"
+        class="mt-4"
         size="64"
         color="primary"
         indeterminate
@@ -101,7 +102,7 @@ export default {
       try {
         this.isLoading = true;
         const response = await axios.get(
-          `http://www.omdbapi.com/?apikey=${env.apikey}&s=${this.search}`
+          `https://www.omdbapi.com/?apikey=${env.apikey}&s=${this.search}`
         );
         this.movies = response.data.Search;
         this.isLoading = false;
